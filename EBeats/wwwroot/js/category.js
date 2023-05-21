@@ -1,10 +1,5 @@
 ﻿$(document).ready(function () {
-    const showPostModal = () => {
-        $("#addCategoryModal").modal("show");
-    };
-    const hidePostModal = () => {
-        $("#addCategoryModal").modal("hide");
-    };
+  
 
     function populateTable(categories) {
         var table = $("#categoryTable tbody");
@@ -66,7 +61,7 @@
                     if (data.length > 0) {
                         populateTable(data);
                     }
-                    hidePostModal();
+               
                 },
             }
         );
@@ -78,10 +73,18 @@
         $("#categoryModal").modal("show");
     });
 
+    $("#cancelCategoryBtn").click(function(){
+        $("#categoryModal").modal("hide");
+    })
+    $("#cancelCategoryBtnIcon").click(function(){
+        $("#categoryModal").modal("hide");
+    })
+
     // Save Category button click event
     $("#saveCategoryBtn").click(function () {
         var categoryData = {
             name: $("#name").val(),
+            products:[],
         };
 
         // Create or Edit Category
@@ -120,6 +123,7 @@
 
         var data = {
             name: name,
+            products: [],
         };
 
         $.ajax({
