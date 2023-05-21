@@ -1,5 +1,6 @@
 ﻿using EBeats.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Diagnostics;
 
 namespace EBeats.Controllers
@@ -15,7 +16,9 @@ namespace EBeats.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var imagesModel = new ImagesModel();
+
+            return View(imagesModel);
         }
 
         public IActionResult Privacy()
