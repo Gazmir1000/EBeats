@@ -14,10 +14,21 @@ builder.Services.AddIdentity<ApplicationUser , IdentityRole>(options => options.
     .AddEntityFrameworkStores<EBeatsContext>().AddDefaultUI()
             .AddDefaultTokenProviders();
 
+
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.IsEssential = true;
+});
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+app.UseSession();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

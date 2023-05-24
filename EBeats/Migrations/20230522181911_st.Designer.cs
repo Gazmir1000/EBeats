@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EBeats.Migrations
 {
     [DbContext(typeof(EBeatsContext))]
-    [Migration("20230517201507_home")]
-    partial class home
+    [Migration("20230522181911_st")]
+    partial class st
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

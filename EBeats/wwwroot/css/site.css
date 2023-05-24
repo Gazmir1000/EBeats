@@ -39,3 +39,58 @@ body {
     padding:4px 16px;
     border:none;
 }
+
+
+.details-section h4 {
+    font-size: 32px;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+
+.details-section p {
+    margin: 16px 0px;
+    font-size: 18px;
+}
+
+.price-container {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.price-container span{
+    font-size:24px;
+}
+
+.qunatity-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.qunatity-container button {
+    background-color: cornflowerblue;
+    color: white;
+    border:none;
+    border-radius:4px;
+    font-size:20px;
+    font-weight:600;
+    padding:0px 18px;
+
+
+}
+
+.add-to-cart {
+    border: none;
+    background-color: orange;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 32px;
+    border-radius:4px;
+    margin-top:16px;
+}
+
+    .add-to-cart:hover {
+        background-color: white;
+        color: orange;
+    }

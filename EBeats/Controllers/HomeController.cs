@@ -16,9 +16,9 @@ namespace EBeats.Controllers
 
         public IActionResult Index()
         {
-            var imagesModel = new ImagesModel();
+          //  var imagesModel = new ImagesModel();
 
-            return View(imagesModel);
+            return View();
         }
 
         public IActionResult Privacy()

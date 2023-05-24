@@ -1,0 +1,25 @@
+﻿@model EBeats.Models.ViewModels.SmallCartViewModel
+
+
+   
+
+    @if (Model != null)
+    {
+        <div class="d-flex align-items-center gap-1">
+            <div>
+                    <p>Items in cart: <span class="badge badge-primary">@Model.NumberOfItems</span></p>
+        <p>Total: <b>@Model.TotalAmount.ToString("C2")</b></p>
+            </div>
+        <a class="btn btn-primary" asp-controller="Cart" asp-action="Index">View Cart</a>
+
+        </div>
+    
+    }
+    else
+    {
+        <p>Your cart is empty</p>
+    }
+
+
+
+
