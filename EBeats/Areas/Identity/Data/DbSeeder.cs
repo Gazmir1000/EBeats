@@ -11,10 +11,10 @@ namespace EBeats.Areas.Identity.Data
             //Seed Roles
             var userManager = service.GetService<UserManager<ApplicationUser>>();
             var roleManager = service.GetService<RoleManager<IdentityRole>>();
-            if(roleManager!=null) {
-                await roleManager.CreateAsync(new IdentityRole(Roles.Admin.ToString()));
-                await roleManager.CreateAsync(new IdentityRole(Roles.User.ToString()));
-            }
+           // if(roleManager!=null) {
+            //    await roleManager.CreateAsync(new IdentityRole(Roles.Admin.ToString()));
+             //   await roleManager.CreateAsync(new IdentityRole(Roles.User.ToString()));
+           // }
          
 
             // creating admin
@@ -29,14 +29,14 @@ namespace EBeats.Areas.Identity.Data
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true
             };
-            if(userManager!=null) {
-                var userInDb = await userManager.FindByEmailAsync(user.Email);
-                if (userInDb == null && userManager!=null)
-                {
-                    await userManager.CreateAsync(user, "Admin@123");
-                    await userManager.AddToRoleAsync(user, Roles.Admin.ToString());
-                }
-            }
+         //   if(userManager!=null) {
+            //    var userInDb = await userManager.FindByEmailAsync(user.Email);
+             //   if (userInDb == null && userManager!=null)
+               // {
+                 //   await userManager.CreateAsync(user, "Admin@123");
+                   // await userManager.AddToRoleAsync(user, Roles.Admin.ToString());
+                //}
+     //       }
           
         }
 
