@@ -25,6 +25,8 @@
                                         <a class="btn btn-danger btn-sm" asp-action="Remove" asp-route-id="@item.ProductId">Remove</a>
                                 </td>
                                 <td>@item.Price.ToString("C2")</td>
+                <td>@Model.CartItems.Where(x => x.ProductId == item.ProductId).Sum(x => x.Quantity * x.Price).ToString("C2")</td>
+
                         </tr>
                 }
                 <tr>
