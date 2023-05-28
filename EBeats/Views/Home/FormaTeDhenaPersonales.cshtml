@@ -1,0 +1,14 @@
+﻿@model EBeats.Models.Guest
+
+<style>
+    .form-control {
+        width: 50%;
+    }
+</style>
+<form asp-controller="Home" asp-action="FormaTeDhenaPersonales" method="post">
+    <label>Per cfare pajisje jeni me shume te interesuar?</label><input asp-for="Pajisja" class="form-control" /><br />
+    <label>Cfare ngjyre do tju pelqente pajisja juaj?</label><input asp-for="Ngjyra" class="form-control" /><br />
+    <label>Cfare cmimi mendoni qe eshte i arsyeshem per pajisjet qe ju jeni te interesuar?</label><input asp-for="Cmimi" class="form-control" /><br />
+    <input type="submit" value="Ruaj" class="btn btn-primary" />
+
+</form>

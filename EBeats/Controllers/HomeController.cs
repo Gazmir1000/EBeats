@@ -1,12 +1,15 @@
 ﻿using EBeats.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
+using EBeats.Data;
 
 namespace EBeats.Controllers
 {
     public class HomeController : Controller
     {
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -14,12 +17,52 @@ namespace EBeats.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
-        {
-          //  var imagesModel = new ImagesModel();
+        public HttpContext httpContext;
 
+
+        [HttpGet]
+        public IActionResult FormaTeDhenaPersonales()
+        {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult FormaTeDhenaPersonales(Guest guest)
+        {
+            HttpContext.Session.SetString("Pajisja", guest.Pajisja);
+            HttpContext.Session.SetString("Ngjyra", guest.Ngjyra);
+            HttpContext.Session.SetInt32("Cmimi", (int)guest.Cmimi);
+            return RedirectToAction("Profil");
+        }
+
+        public IActionResult Profil()
+
+        {
+            if (!String.IsNullOrEmpty(HttpContext.Session.GetString("Pajisja")) &&
+            !String.IsNullOrEmpty(HttpContext.Session.GetString("Ngjyra")) &&
+            HttpContext.Session.GetInt32("Cmimi") != 0)
+            {
+                var guest = new Guest
+                {
+                    Pajisja = HttpContext.Session.GetString("Pajisja"),
+                    Ngjyra = HttpContext.Session.GetString("Ngjyra"),
+                    Cmimi = (int)HttpContext.Session.GetInt32("Cmimi")
+                };
+                return View(guest);
+            }
+            return RedirectToAction("FormaTeDhenaPersonales");
+        }
+
+        public IActionResult Index(ApplicationUser context)
+        {
+      
+            return View();
+        }
+
+        private readonly ApplicationUser _context;
+
+        
+
 
         public IActionResult Privacy()
         {

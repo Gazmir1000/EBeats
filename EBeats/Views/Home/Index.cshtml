@@ -1,61 +1,10 @@
 ﻿
-
-
-
 <html>
-    <head>
+<head>
     <link rel="stylesheet" href="/css/Homes.css" />
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const carousels = document.querySelectorAll(".carousel");
-
-            carousels.forEach(function (carousel) {
-                const prevButton = carousel.querySelector(".prev-button");
-                const nextButton = carousel.querySelector(".next-button");
-                const carouselInner = carousel.querySelector(".carousel-inner");
-                const carouselImages = carouselInner.querySelectorAll("img");
-
-                let currentIndex = 0;
-                const maxIndex = carouselImages.length - 1;
-
-                prevButton.addEventListener("click", function () {
-                    currentIndex = (currentIndex - 1 + carouselImages.length) % carouselImages.length;
-                    updateCarousel();
-                });
-
-                nextButton.addEventListener("click", function () {
-                    currentIndex = (currentIndex + 1) % carouselImages.length;
-                    updateCarousel();
-                });
-
-                function updateCarousel() {
-                    carouselImages.forEach(function (image, index) {
-                        if (index === currentIndex) {
-                            image.style.display = "block";
-                        } else {
-                            image.style.display = "none";
-                        }
-                    });
-                }
-            });
-        });
-       // <div class="pic-ctn" >
-         //   <img src="/NewFolder/Screenshot (32).png" alt = "Image 1" >
-           //     <img src="/NewFolder/Screenshot (31).png" alt = "Image 2" >
-             //       <img src="/NewFolder/Screenshot (33).png" alt = "Image 3" >
-               //         <img src="/NewFolder/Screenshot (30).png" alt = "Image 4" >
-                 //           <img src="/NewFolder/Screenshot (32).png" alt = "Image 5" >
-                   //             <img src="/NewFolder/Screenshot (31).png" alt = "Image 6" >
-                     //               </div>
-    </script>
-    </head>
-    <body>
-
-
-
-
-
+</head>
+<body>
 
     <section class="carousel" aria-label="Gallery">
         <ol class="carousel__viewport">
@@ -119,8 +68,7 @@
         </aside>
     </section>
 
-
-    </body>
+</body>
 
 
 </html>
