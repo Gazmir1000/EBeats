@@ -1,0 +1,25 @@
+﻿@model EBeats.Models.ApplicationUser;
+
+<div class="container d-flex justify-content-center mt-5">
+
+	<div class="card">
+
+		<div class="top-container">
+
+			<div class="ml-3">
+				<h4 class="name">@Model.Firstname @Model.Lastname</h4>
+				<p class="mail">@Model.Email</p>
+				<p class="mail">Birthday: @Model.Birthday.ToShortDateString()</p>
+			</div>
+		</div>
+		<a class="btn btn-primary btn-sm" asp-action="ShowPasswordForm" >Change Password</a>
+		<a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+
+
+
+		
+
+
+	</div>
+
+</div>
