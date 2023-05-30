@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
 using EBeats.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace EBeats.Controllers
 {
@@ -11,10 +12,26 @@ namespace EBeats.Controllers
     {
 
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly EBeatsContext _context;
+     
+        public HomeController(ILogger<HomeController> logger, EBeatsContext context)
         {
             _logger = logger;
+            _context = context;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var categories = await _context.Categories.ToListAsync();
+         
+            foreach (Category c in categories)
+            {
+                c.Products = await _context.Products.Where(p => p.CategoryId == c.Id).ToListAsync();
+            }
+
+            return View(categories);
+            
+
         }
 
         public HttpContext httpContext;
@@ -53,13 +70,8 @@ namespace EBeats.Controllers
             return RedirectToAction("FormaTeDhenaPersonales");
         }
 
-        public IActionResult Index(ApplicationUser context)
-        {
-      
-            return View();
-        }
-
-        private readonly ApplicationUser _context;
+     
+        
 
         
 

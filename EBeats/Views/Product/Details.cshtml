@@ -1,25 +1,21 @@
-﻿
+﻿@model EBeats.Models.Product
+
+
 <div class="details-container">
-    <div class="image-section"></div>
+    <div class="col-6">
+        <img style="height:400px;object-fit:cover;width:auto;" src="@Model.Image" />
+    </div>
     <div class="details-section">
-        <h4>titulli shtu</h4>
+        <h4>@Model.Name</h4>
         <hr/>
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus
-            corporis atque, fugiat quam excepturi perferendis esse reprehenderit
-            voluptatibus sed aspernatur maiores quos minus sequi pariatur voluptatem
-            doloremque non laboriosam nam!
-            dsadsadsa
+            @Model.Description
         </p>
         <div class="price-container">
-            <div class="qunatity-container">
-                <button>-</button>
-                <span>1</span>
-                <button>+</button>
-            </div>
-            <span>15$</span>
+            
+            <span>@Model.Price $</span>
         </div>
-        <button class="add-to-cart">Add to cart +</button>
+        <a asp-controller="Cart" asp-action="Add" asp-route-id="@Model.Id" class="add-to-cart">Add to cart +</a>
     </div>
 </div>
 

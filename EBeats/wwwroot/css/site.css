@@ -95,19 +95,21 @@ body {
         color: orange;
     }
 
-.card {
+.card-profile {
     background-color: #fff;
-    width:100%;
+    width: 100%;
     border-radius: 6px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 2rem !important;
+    width: 100%;
+    padding: 24px;
 }
 
 .top-container {
     display: flex;
     align-items: center;
-    width:100%;
-    max-width:800px;
+    width: 100%;
+    max-width: 800px;
 }
 
 .profile-image {
@@ -118,14 +120,14 @@ body {
 .name {
     font-size: 15px;
     font-weight: bold;
-    color: #272727;
+    color: #161616;
     position: relative;
     top: 8px;
 }
 
 .mail {
-    font-size: 18px;
-    font-weight:600;
+    font-size: 20px;
+    font-weight: 600;
     color: grey;
     position: relative;
     top: 2px;
@@ -157,64 +159,70 @@ body {
     text-align: center;
 }
 
-.dollar {
-    font-size: 16px !important;
-    color: #5957f9 !important;
-    font-weight: bold !important;
+.user-btn {
+    color: white !important;
+    margin: 4px;
+    font-weight: 600;
+}
+.our-team-main {
+    width: 100%;
+    height: auto;
+    border-bottom: 5px #323233 solid;
+    background: #fff;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    transition: 0.5s;
+    margin-bottom: 28px;
 }
 
 
-.current-balance {
-    font-size: 15px;
-    color: #272727;
-    font-weight: bold;
-}
-
-.amount {
-    color: #5957f9;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.dollar-sign {
-    font-size: 16px;
-    color: #272727;
-    font-weight: bold;
-}
-
-.recent-border {
-    border-left: 2px solid #5957f9;
-    display: flex;
-    align-items: center;
-}
-
-    .recent-border:hover {
-        border-bottom: 1px solid #dee2e6 !important;
+    .our-team-main img {
+        border-radius: 50%;
+        margin-bottom: 20px;
+        width: 90px;
     }
 
-.recent-orders {
-    font-size: 16px;
-    font-weight: 700;
-    color: #5957f9;
-    margin-left: 2px;
+    .our-team-main h3 {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .our-team-main p {
+        margin-bottom: 0;
+    }
+
+.team-back {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px 15px 0 15px;
+    text-align: left;
+    background: #fff;
 }
 
-.wishlist {
-    font-size: 16px;
-    font-weight: 700;
-    color: #272727;
+.team-front {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 10;
+    background: #fff;
+    padding: 15px;
+    bottom: 0px;
+    transition: all 0.5s ease;
 }
 
-.wishlist-border:hover {
-    border-bottom: 1px solid #dee2e6 !important;
+.our-team-main:hover .team-front {
+    bottom: -200px;
+    transition: all 0.5s ease;
 }
 
-.fashion-studio {
-    font-size: 16px;
-    font-weight: 700;
-    color: #272727;
+.our-team-main:hover {
+    border-color: #777;
+    transition: 0.5s;
 }
 
-.fashion-studio-border:hover {
-    border-bottom: 1px solid #dee2e6 !important;
-}
+/*our-

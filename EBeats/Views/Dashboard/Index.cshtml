@@ -1,0 +1,157 @@
+﻿
+<head>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="~/css/category.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="~/js/category.js"></script>
+</head>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<h1 class="text-center">Dashboard</h1>
+
+
+<div class="container">
+	<div class="row">
+
+		<!--team-1-->
+		<div class="col-lg-4">
+			<div class="our-team-main">
+
+				<div class="team-front" style="color:orange;">
+					<h2>Total Orders</h2>
+					<h3 id="total-count"></h3>
+					
+				</div>
+
+				<div class="team-back">
+					<span>
+					Here the total number of all orders .
+					</span>
+				</div>
+
+			</div>
+		</div>
+		<!--team-1-->
+		<!--team-2-->
+		<div class="col-lg-4">
+			<div class="our-team-main">
+
+				<div class="team-front" style="color:green;">
+					<h2>Delviered Orders</h2>
+					<h3 id="total-count-delivered"></h3>
+				</div>
+
+				<div class="team-back">
+					<span>
+						Orders that are delivered to their destinations successfuly
+					</span>
+				</div>
+
+			</div>
+		</div>
+		<!--team-2-->
+		<!--team-3-->
+		<div class="col-lg-4">
+			<div class="our-team-main">
+
+				<div class="team-front" style="color:cornflowerblue;">
+					<h2>Our for delivery Orders</h2>
+					<h3 id="total-count-out"></h3>
+				</div>
+
+				<div class="team-back">
+					<span>
+						Orders that are picked up by the curiers but are yet to be delivered.
+					</span>
+				</div>
+
+			</div>
+		</div>
+		<!--team-3-->
+		<!--team-4-->
+		<div class="col-lg-4">
+			<div class="our-team-main">
+
+				<div class="team-front">
+					<h2>in Transit Orders</h2>
+					<h3 id="total-count-transit"></h3>
+				</div>
+
+				<div class="team-back">
+					<span>
+						Orders that are in the way to be delivered
+					</span>
+				</div>
+
+			</div>
+		</div>
+		<!--team-4-->
+		<!--team-5-->
+		<div class="col-lg-4">
+			<div class="our-team-main">
+
+				<div class="team-front" style="color:brown;">
+					<h2>Pending Orders</h2>
+					<h3 id="total-count-pending"></h3>
+				</div>
+
+				<div class="team-back">
+					<span>
+						Orders that are waiting to be picked by the curiers.
+					</span>
+				</div>
+
+			</div>
+		</div>
+		<!--team-5-->
+		<!--team-6-->
+		<div class="col-lg-4">
+			<div class="our-team-main">
+
+				<div class="team-front" style="color:red;">
+					<h2>Canceled Orders</h2>
+					<h3 id="total-count-canceled"></h3>
+				</div>
+
+				<div class="team-back">
+					<span>
+						Orders that are canceled
+					</span>
+				</div>
+
+			</div>
+		</div>
+		<!--team-6-->
+
+
+
+	</div>
+</div>
+<script>
+	$(document).ready(function () {
+		$.ajax(
+			"https://localhost:7142/api/DashboardApi", // request url
+			{
+				success: function (data, status, xhr) {
+					// success callback function
+
+					console.log(data)
+					$("#total-count").html(data.totalOrder.length)
+					$("#total-count-delivered").html(data.delivered.length)
+					$("#total-count-transit").html(data.inTransit.length)
+					$("#total-count-out").html(data.outForDelivery.length)
+					$("#total-count-pending").html(data.pending.length)
+					$("#total-count-canceled").html(data.canceled.length)
+
+				},
+			}
+		);
+	})
+	
+</script>

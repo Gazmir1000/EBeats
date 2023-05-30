@@ -31,9 +31,10 @@ namespace EBeats.Controllers
             return View();
         }
 
-        public IActionResult Details()
+        public async Task<IActionResult> Details(int id)
         {
-            return View();
+            var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+            return View(product);
         }
     }
 }
